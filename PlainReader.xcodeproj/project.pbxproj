@@ -461,8 +461,7 @@
 				A07751D718E1589D00F106F8 /* PRPullToRefreshViewController.h */,
 				A07751D818E1589D00F106F8 /* PRPullToRefreshViewController.m */,
 			);
-			name = PRPullToRefresh;
-			path = BLKPullToRefresh;
+			path = PRPullToRefresh;
 			sourceTree = "<group>";
 		};
 		A08E9330192D0C2E006A3D41 /* Images */ = {
