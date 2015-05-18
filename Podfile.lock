@@ -1,0 +1,86 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
+    - CocoaLumberjack/Core
+  - CWFoundation (0.0.5):
+    - CWFoundation/Foundation+CWAdditions (= 0.0.5)
+    - CWFoundation/UIKit+CWAdditions (= 0.0.5)
+    - CWFoundation/Utilities (= 0.0.5)
+  - CWFoundation/Foundation+CWAdditions (0.0.5)
+  - CWFoundation/UIKit+CWAdditions (0.0.5)
+  - CWFoundation/Utilities (0.0.5):
+    - CWFoundation/Foundation+CWAdditions
+  - CWStackController (0.0.3)
+  - FLAnimatedImage (1.0.8)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - hpple (0.2.0)
+  - JDStatusBarNotification (1.5.2)
+  - pop (1.0.7)
+
+DEPENDENCIES:
+  - AFNetworking
+  - CocoaLumberjack (= 1.9.2)
+  - CWFoundation (from `https://github.com/guojiubo/CWFoundation.git`, commit `2352449291499091f4e4a82877ec57c9070ced35`)
+  - CWStackController (from `https://github.com/guojiubo/CWStackController.git`, commit
+    `8ff182c2f4e6b4cc31b9357f2a31f6bde456ef87`)
+  - FLAnimatedImage
+  - FMDB
+  - hpple
+  - JDStatusBarNotification
+  - pop
+
+EXTERNAL SOURCES:
+  CWFoundation:
+    :commit: 2352449291499091f4e4a82877ec57c9070ced35
+    :git: https://github.com/guojiubo/CWFoundation.git
+  CWStackController:
+    :commit: 8ff182c2f4e6b4cc31b9357f2a31f6bde456ef87
+    :git: https://github.com/guojiubo/CWStackController.git
+
+CHECKOUT OPTIONS:
+  CWFoundation:
+    :commit: 2352449291499091f4e4a82877ec57c9070ced35
+    :git: https://github.com/guojiubo/CWFoundation.git
+  CWStackController:
+    :commit: 8ff182c2f4e6b4cc31b9357f2a31f6bde456ef87
+    :git: https://github.com/guojiubo/CWStackController.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
+  CWFoundation: ac66e6b36df27d5f059568b1f2740b7b7730695c
+  CWStackController: 3ca7386728b4132ca65a1862a5ccfa76f35fdb10
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
+  JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+
+COCOAPODS: 0.37.1

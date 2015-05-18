@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PRBrowserViewController">
+            <connections>
+                <outlet property="backButton" destination="tRm-1h-flS" id="FXb-Jl-Qfi"/>
+                <outlet property="forwardButton" destination="ABP-Ri-P19" id="btX-KH-JO0"/>
+                <outlet property="indicator" destination="LHI-cC-c2b" id="Xl9-BZ-pqM"/>
+                <outlet property="refreshButton" destination="rUq-5K-TTC" id="yGh-Gb-nL4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="STL-TY-emQ" id="eA2-Au-ive"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STL-TY-emQ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ETQ-mR-WYr"/>
+                    </connections>
+                </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGn-Uy-OII">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTZ-aI-9aO">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <items/>
+                        </toolbar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRm-1h-flS">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="5pg-0W-VOw"/>
+                                <constraint firstAttribute="height" constant="44" id="t8T-GA-bLz"/>
+                            </constraints>
+                            <state key="normal" image="browser_back_n">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="disabled" image="browser_back_d"/>
+                            <state key="highlighted" image="browser_back_p"/>
+                            <connections>
+                                <action selector="goBack:" destination="-1" eventType="touchUpInside" id="3R5-65-HYW"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgY-3i-oVB">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABP-Ri-P19">
+                            <rect key="frame" x="80" y="0.0" width="80" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="VZg-Xv-MXf"/>
+                                <constraint firstAttribute="width" constant="80" id="W8M-8n-BWh"/>
+                            </constraints>
+                            <state key="normal" image="browser_forward_n">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="disabled" image="browser_forward_d"/>
+                            <state key="highlighted" image="browser_forward_p"/>
+                            <connections>
+                                <action selector="goForward:" destination="-1" eventType="touchUpInside" id="b8c-xf-57f"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08w-0Z-qtW">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9M-Jw-Jgx">
+                            <rect key="frame" x="160" y="0.0" width="80" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="BL5-gE-mgz"/>
+                                <constraint firstAttribute="width" constant="80" id="V0e-lN-At8"/>
+                            </constraints>
+                            <state key="normal" image="browser_safari_n">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="browser_safari_p"/>
+                            <connections>
+                                <action selector="openInSafari:" destination="-1" eventType="touchUpInside" id="bU9-pO-E5x"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-Em-U5X">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUq-5K-TTC">
+                            <rect key="frame" x="240" y="0.0" width="80" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Iid-pF-6hL"/>
+                                <constraint firstAttribute="width" constant="80" id="eHT-Xk-SwC"/>
+                            </constraints>
+                            <state key="normal" image="browser_refresh_n">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="browser_refresh_p"/>
+                            <connections>
+                                <action selector="refresh:" destination="-1" eventType="touchUpInside" id="Tau-HR-jcW"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-cC-c2b">
+                            <rect key="frame" x="270" y="12" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="T56-T0-8FT"/>
+                                <constraint firstAttribute="height" constant="20" id="f3B-jF-Lic"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="CTZ-aI-9aO" secondAttribute="bottom" id="69P-v7-1Io"/>
+                        <constraint firstAttribute="bottom" secondItem="tRm-1h-flS" secondAttribute="bottom" id="7Mi-Kr-smD"/>
+                        <constraint firstItem="3c5-Em-U5X" firstAttribute="leading" secondItem="m9M-Jw-Jgx" secondAttribute="trailing" id="8Ch-wa-7GG"/>
+                        <constraint firstAttribute="bottom" secondItem="3c5-Em-U5X" secondAttribute="bottom" id="ADx-fz-oOj"/>
+                        <constraint firstItem="08w-0Z-qtW" firstAttribute="width" secondItem="YgY-3i-oVB" secondAttribute="width" id="BzN-jM-mmi"/>
+                        <constraint firstItem="08w-0Z-qtW" firstAttribute="top" secondItem="nGn-Uy-OII" secondAttribute="top" id="D5c-WK-dYq"/>
+                        <constraint firstItem="3c5-Em-U5X" firstAttribute="top" secondItem="nGn-Uy-OII" secondAttribute="top" id="F0x-P4-zqu"/>
+                        <constraint firstItem="rUq-5K-TTC" firstAttribute="leading" secondItem="3c5-Em-U5X" secondAttribute="trailing" id="GLZ-6h-1Xh"/>
+                        <constraint firstAttribute="centerY" secondItem="ABP-Ri-P19" secondAttribute="centerY" id="H1W-5N-G9U"/>
+                        <constraint firstItem="YgY-3i-oVB" firstAttribute="top" secondItem="nGn-Uy-OII" secondAttribute="top" id="IFM-qf-1KN"/>
+                        <constraint firstItem="08w-0Z-qtW" firstAttribute="leading" secondItem="ABP-Ri-P19" secondAttribute="trailing" id="JeK-cE-7K1"/>
+                        <constraint firstAttribute="trailing" secondItem="CTZ-aI-9aO" secondAttribute="trailing" id="KOA-G9-myh"/>
+                        <constraint firstAttribute="trailing" secondItem="rUq-5K-TTC" secondAttribute="trailing" id="SL2-jm-Lex"/>
+                        <constraint firstAttribute="bottom" secondItem="08w-0Z-qtW" secondAttribute="bottom" id="SXR-sd-9u2"/>
+                        <constraint firstItem="CTZ-aI-9aO" firstAttribute="leading" secondItem="nGn-Uy-OII" secondAttribute="leading" id="TEq-un-DWl"/>
+                        <constraint firstItem="LHI-cC-c2b" firstAttribute="centerX" secondItem="rUq-5K-TTC" secondAttribute="centerX" id="Uzk-b2-Lkg"/>
+                        <constraint firstAttribute="height" constant="44" id="VBA-mt-7ws"/>
+                        <constraint firstItem="m9M-Jw-Jgx" firstAttribute="leading" secondItem="08w-0Z-qtW" secondAttribute="trailing" id="VLi-Gc-Dih"/>
+                        <constraint firstItem="LHI-cC-c2b" firstAttribute="centerY" secondItem="rUq-5K-TTC" secondAttribute="centerY" id="Wxv-BZ-jpc"/>
+                        <constraint firstItem="08w-0Z-qtW" firstAttribute="width" secondItem="3c5-Em-U5X" secondAttribute="width" id="Xlh-j7-ae9"/>
+                        <constraint firstItem="ABP-Ri-P19" firstAttribute="leading" secondItem="YgY-3i-oVB" secondAttribute="trailing" id="YpA-fK-vb9"/>
+                        <constraint firstItem="CTZ-aI-9aO" firstAttribute="top" secondItem="nGn-Uy-OII" secondAttribute="top" id="avD-L6-COi"/>
+                        <constraint firstAttribute="bottom" secondItem="rUq-5K-TTC" secondAttribute="bottom" id="brz-Wu-YqR"/>
+                        <constraint firstItem="tRm-1h-flS" firstAttribute="leading" secondItem="nGn-Uy-OII" secondAttribute="leading" id="mJz-Hs-zW0"/>
+                        <constraint firstAttribute="centerY" secondItem="m9M-Jw-Jgx" secondAttribute="centerY" id="pBh-Pg-NcY"/>
+                        <constraint firstItem="YgY-3i-oVB" firstAttribute="leading" secondItem="tRm-1h-flS" secondAttribute="trailing" id="wO5-Zc-n5I"/>
+                        <constraint firstAttribute="bottom" secondItem="YgY-3i-oVB" secondAttribute="bottom" id="zH3-eW-gg6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nGn-Uy-OII" secondAttribute="bottom" id="EPc-vk-S63"/>
+                <constraint firstItem="STL-TY-emQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Kb1-6m-6A8"/>
+                <constraint firstAttribute="trailing" secondItem="nGn-Uy-OII" secondAttribute="trailing" id="TXu-Zb-M7u"/>
+                <constraint firstAttribute="bottom" secondItem="STL-TY-emQ" secondAttribute="bottom" id="Uts-3t-YMx"/>
+                <constraint firstAttribute="trailing" secondItem="STL-TY-emQ" secondAttribute="trailing" id="pu6-fd-7at"/>
+                <constraint firstItem="STL-TY-emQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qId-Je-6PU"/>
+                <constraint firstItem="nGn-Uy-OII" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tiv-Wz-elj"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="browser_back_d" width="25" height="25"/>
+        <image name="browser_back_n" width="25" height="25"/>
+        <image name="browser_back_p" width="25" height="25"/>
+        <image name="browser_forward_d" width="25" height="25"/>
+        <image name="browser_forward_n" width="25" height="25"/>
+        <image name="browser_forward_p" width="25" height="25"/>
+        <image name="browser_refresh_n" width="25" height="25"/>
+        <image name="browser_refresh_p" width="25" height="25"/>
+        <image name="browser_safari_n" width="25" height="25"/>
+        <image name="browser_safari_p" width="25" height="25"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

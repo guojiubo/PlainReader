@@ -1,0 +1,37 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <AFNetworking.h>
+#import <AFNetworking/UIKit+AFNetworking.h>
+#import <TFHpple.h>
+#import <CoreData/CoreData.h>
+#import <CWFoundation/CWFoundation.h>
+#import <POP.h>
+#import <PlainReader-Swift.h>
+#import <FLAnimatedImage.h>
+#import "AppDelegate.h"
+#import "RESideMenu.h"
+#import "PRStackController.h"
+#import "JDStatusBarNotification+PRStatusBar.h"
+#import "NIAttributedLabel.h"
+#import "PRLogger.h"
+#import "PRAppSettings.h"
+#import "UIColor+PRColors.h"
+#import "UIViewController+CWAdditions.h"
+#endif
+
+#ifndef DEBUG
+#define NSLog(...) do {} while (0) // suppress NSLog in release mode
+#endif

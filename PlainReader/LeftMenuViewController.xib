@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="PlainReader" customModuleProvider="target">
+            <connections>
+                <outlet property="realtimeItem" destination="W1h-oB-OjL" id="z5y-oQ-PJr"/>
+                <outlet property="settingsItem" destination="ni2-Qa-fHg" id="JHT-hN-RE0"/>
+                <outlet property="starredItem" destination="M0y-n5-TqY" id="RKq-5L-LbD"/>
+                <outlet property="themeSwitch" destination="zyg-cR-Egi" id="ISD-Zn-klh"/>
+                <outlet property="topCommentItem" destination="5HM-QP-EZc" id="n2j-XS-mtt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weeklyItem" destination="ntx-aQ-a5D" id="lL3-di-OXw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftMenuBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iim-A4-wPL">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX6-Il-Bev">
+                    <rect key="frame" x="0.0" y="150" width="600" height="300"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1h-oB-OjL" customClass="LeftMenuItem" customModule="PlainReader" customModuleProvider="target">
+                            <rect key="frame" x="50" y="0.0" width="210" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="E24-bb-Sh2"/>
+                                <constraint firstAttribute="width" constant="210" id="Jqe-u4-pPt"/>
+                            </constraints>
+                            <connections>
+                                <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="Wgb-PC-VZZ"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HM-QP-EZc" customClass="LeftMenuItem" customModule="PlainReader" customModuleProvider="target">
+                            <rect key="frame" x="50" y="60" width="210" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="nTU-T2-x6N"/>
+                                <constraint firstAttribute="width" constant="210" id="yQh-UL-hF5"/>
+                            </constraints>
+                            <connections>
+                                <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="chc-9r-ZoV"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntx-aQ-a5D" customClass="LeftMenuItem" customModule="PlainReader" customModuleProvider="target">
+                            <rect key="frame" x="50" y="120" width="210" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="dXK-9u-oGJ"/>
+                                <constraint firstAttribute="width" constant="210" id="zik-N7-STr"/>
+                            </constraints>
+                            <connections>
+                                <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="lLZ-01-xV8"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0y-n5-TqY" customClass="LeftMenuItem" customModule="PlainReader" customModuleProvider="target">
+                            <rect key="frame" x="50" y="180" width="210" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="210" id="Vdw-5b-ds6"/>
+                                <constraint firstAttribute="height" constant="60" id="ooe-X4-Rng"/>
+                            </constraints>
+                            <connections>
+                                <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="ePY-Wl-uzt"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-Qa-fHg" customClass="LeftMenuItem" customModule="PlainReader" customModuleProvider="target">
+                            <rect key="frame" x="50" y="240" width="210" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="3jC-SB-CjE"/>
+                                <constraint firstAttribute="width" constant="210" id="h7f-k0-eiO"/>
+                            </constraints>
+                            <connections>
+                                <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="N6L-rD-GFc"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="M0y-n5-TqY" firstAttribute="top" secondItem="ntx-aQ-a5D" secondAttribute="bottom" id="HG9-yh-hEW"/>
+                        <constraint firstItem="5HM-QP-EZc" firstAttribute="leading" secondItem="TX6-Il-Bev" secondAttribute="leading" constant="50" id="JpS-sq-IM4"/>
+                        <constraint firstItem="ni2-Qa-fHg" firstAttribute="leading" secondItem="TX6-Il-Bev" secondAttribute="leading" constant="50" id="Jtw-V3-ey7"/>
+                        <constraint firstItem="5HM-QP-EZc" firstAttribute="top" secondItem="W1h-oB-OjL" secondAttribute="bottom" id="RX0-FV-GOl"/>
+                        <constraint firstItem="ni2-Qa-fHg" firstAttribute="top" secondItem="M0y-n5-TqY" secondAttribute="bottom" id="Rsy-qE-h8W"/>
+                        <constraint firstItem="M0y-n5-TqY" firstAttribute="leading" secondItem="TX6-Il-Bev" secondAttribute="leading" constant="50" id="Svd-KJ-qCb"/>
+                        <constraint firstItem="W1h-oB-OjL" firstAttribute="top" secondItem="TX6-Il-Bev" secondAttribute="top" id="Xuv-HP-Jwc"/>
+                        <constraint firstItem="ntx-aQ-a5D" firstAttribute="leading" secondItem="TX6-Il-Bev" secondAttribute="leading" constant="50" id="fRi-Yw-Q4P"/>
+                        <constraint firstItem="ntx-aQ-a5D" firstAttribute="top" secondItem="5HM-QP-EZc" secondAttribute="bottom" id="sHA-N7-sk3"/>
+                        <constraint firstAttribute="height" constant="300" id="sIP-HM-r9S"/>
+                        <constraint firstItem="W1h-oB-OjL" firstAttribute="leading" secondItem="TX6-Il-Bev" secondAttribute="leading" constant="50" id="vGG-dI-OsY"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyg-cR-Egi" customClass="ThemeSwitch" customModule="PlainReader" customModuleProvider="target">
+                    <rect key="frame" x="20" y="536" width="64" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="UnW-cV-MPc"/>
+                        <constraint firstAttribute="width" constant="64" id="eTp-yF-Nee"/>
+                    </constraints>
+                    <connections>
+                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="hxr-kh-C4M"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="TX6-Il-Bev" secondAttribute="centerY" id="0zE-sa-mcr"/>
+                <constraint firstItem="TX6-Il-Bev" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1qp-w0-43n"/>
+                <constraint firstAttribute="trailing" secondItem="iim-A4-wPL" secondAttribute="trailing" id="2Yb-QM-FHO"/>
+                <constraint firstItem="iim-A4-wPL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2p4-lP-dgv"/>
+                <constraint firstAttribute="trailing" secondItem="TX6-Il-Bev" secondAttribute="trailing" id="41c-r0-896"/>
+                <constraint firstAttribute="bottom" secondItem="zyg-cR-Egi" secondAttribute="bottom" constant="20" id="efl-R4-rdK"/>
+                <constraint firstAttribute="bottom" secondItem="iim-A4-wPL" secondAttribute="bottom" id="nEM-zb-un6"/>
+                <constraint firstItem="iim-A4-wPL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pC4-dU-7bw"/>
+                <constraint firstItem="zyg-cR-Egi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="q2T-yJ-kqZ"/>
+            </constraints>
+            <point key="canvasLocation" x="458" y="377"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="LeftMenuBackground" width="320" height="480"/>
+    </resources>
+</document>

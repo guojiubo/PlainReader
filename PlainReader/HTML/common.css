@@ -1,0 +1,67 @@
+html {
+    -webkit-text-size-adjust: none; /* Never autoresize text */
+}
+body {
+    word-break: break-all;
+    font-family: HelveticaNeue;
+    padding:5px;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    body {
+        padding: 5px 70px;
+    }
+}
+h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.source {
+    text-align: right;
+}
+.time {
+    text-align: right;
+}
+hr {
+    border: none;
+}
+hr.hairline {
+    border-bottom: 0.5px rgb(66, 191, 231) solid;
+}
+img, video, object, figure, iframe {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+a:link {
+    color: rgb(66, 191, 231);
+}
+iframe {
+    background-color: black;
+    border: none;
+}
+video {
+    background-color: black;
+}
+strong {
+    font-weight: normal;
+}
+div.videoPlaceholder {
+    margin: auto;
+    max-width: 320px;
+    height:160px;
+    background-color: black;
+    position: relative;
+}
+div.videoForbidden {
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: black;
+    background-image: url("article_video_forbidden.png");
+    background-size: 62px 62px;
+    background-repeat: no-repeat;
+    background-position: center;
+}

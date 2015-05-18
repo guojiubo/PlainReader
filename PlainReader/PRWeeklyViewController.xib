@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PRWeeklyViewController">
+            <connections>
+                <outlet property="tableView" destination="RLf-fn-Btq" id="Nn2-Mn-Cmw"/>
+                <outlet property="view" destination="iN0-l3-epB" id="mQG-rN-E86"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RLf-fn-Btq" customClass="PRTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="AuA-EJ-8wN"/>
+                        <outlet property="delegate" destination="-1" id="roR-Pq-R4Q"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RLf-fn-Btq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N8l-eC-aW8"/>
+                <constraint firstItem="RLf-fn-Btq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Oiu-qI-xGL"/>
+                <constraint firstAttribute="trailing" secondItem="RLf-fn-Btq" secondAttribute="trailing" id="W4y-Gv-WZC"/>
+                <constraint firstAttribute="bottom" secondItem="RLf-fn-Btq" secondAttribute="bottom" id="YCu-gE-gcC"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
