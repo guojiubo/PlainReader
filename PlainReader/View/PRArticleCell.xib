@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -50,24 +50,24 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06-29 22:46" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGS-gg-I8j">
-                                <rect key="frame" x="30" y="57" width="68" height="15"/>
+                                <rect key="frame" x="30" y="57" width="73" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="grb-Or-oYD"/>
-                                    <constraint firstAttribute="width" constant="68" id="hHK-2B-8lR"/>
+                                    <constraint firstAttribute="width" constant="73" id="hHK-2B-8lR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="article_comment_count" translatesAutoresizingMaskIntoConstraints="NO" id="f1G-uR-bew">
-                                <rect key="frame" x="106" y="57" width="15" height="15"/>
+                                <rect key="frame" x="111" y="57" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="PHw-w2-4AW"/>
                                     <constraint firstAttribute="height" constant="15" id="oGz-G5-djf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJG-Wa-re1">
-                                <rect key="frame" x="121" y="57" width="21" height="15"/>
+                                <rect key="frame" x="126" y="57" width="23" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="VXk-AA-cGl"/>
                                     <constraint firstAttribute="width" constant="21" id="sU4-Ot-Nke"/>
@@ -75,6 +75,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sU4-Ot-Nke"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
