@@ -20,7 +20,7 @@ class LeftMenuItem: UIControl {
         self.imageView = UIImageView(frame: CGRectZero)
         self.titleLabel = UILabel(frame: CGRectZero)
         
-        super.init(coder: coder)
+        super.init(coder: coder)!
         
         self.pieView.frame = CGRectMake(10, (CGRectGetHeight(self.bounds) - 28) / 2, 28, 28)
         self.pieView.layer.cornerRadius = 14
@@ -43,13 +43,13 @@ class LeftMenuItem: UIControl {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         
         self.zoomIn()
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
         
         if self.selected {
@@ -59,7 +59,7 @@ class LeftMenuItem: UIControl {
         self.zoomOut()
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
         
         if self.selected {

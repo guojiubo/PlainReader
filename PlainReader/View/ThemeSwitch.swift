@@ -21,7 +21,7 @@ class ThemeSwitch: UIControl {
     }
     
     required init(coder: NSCoder) {
-        super.init(coder: coder)
+        super.init(coder: coder)!
         
         self.setup()
     }

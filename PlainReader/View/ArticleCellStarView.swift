@@ -24,13 +24,13 @@ class ArticleCellStarView: UIView {
     }
 
     required init(coder: NSCoder) {
-        super.init(coder: coder)
+        super.init(coder: coder)!
         self.setup()
     }
     
     func setup() {
         self.star.center = CGPoint(x: CGRectGetWidth(self.bounds)/2, y: CGRectGetHeight(self.bounds)/2)
-        self.star.autoresizingMask = .FlexibleLeftMargin | .FlexibleRightMargin | .FlexibleTopMargin | .FlexibleBottomMargin
+        self.star.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin]
         self.addSubview(self.star)
     }
 }

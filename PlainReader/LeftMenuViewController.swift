@@ -72,7 +72,7 @@ class LeftMenuViewController: UIViewController {
             let starreds = StarredArticlesViewController.cw_loadFromNibUsingClassName()
             centerStackController.viewControllers = [starreds]
         case self.settingsItem:
-            let settings: AnyObject = UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController()
+            let settings: AnyObject = UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController()!
             centerStackController.viewControllers = [settings]
         default:
             print("Something went wrong")
