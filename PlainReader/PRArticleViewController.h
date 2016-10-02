@@ -10,7 +10,7 @@
 
 extern NSString *const ArticleViewControllerStarredNotification;
 
-@interface PRArticleViewController : PRViewController <CWStackProtocol>
+@interface PRArticleViewController : PRViewController
 
 @property (nonatomic, copy) NSNumber *articleId;
 

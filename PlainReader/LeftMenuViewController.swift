@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CWStackController
 
 class LeftMenuViewController: UIViewController {
 
@@ -22,7 +23,7 @@ class LeftMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.realtimeItem.selected = true
+        self.realtimeItem.isSelected = true
         self.realtimeItem.titleLabel.text = "实时资讯"
         self.realtimeItem.imageView.image = UIImage(named: "LeftMenuRealtime")
         
@@ -40,20 +41,20 @@ class LeftMenuViewController: UIViewController {
         self.settingsItem.titleLabel.text = "设　　置"
         self.settingsItem.imageView.image = UIImage(named: "LeftMenuSettings")
         
-        self.themeSwitch.selected = PRAppSettings.sharedSettings().nightMode
+        self.themeSwitch.isSelected = PRAppSettings.shared().isNightMode
     }
     
-    @IBAction func itemAction(item: LeftMenuItem) {
+    @IBAction func itemAction(_ item: LeftMenuItem) {
         if item == self.currentSelectedItem {
-            self.sideMenuViewController.hideMenuViewController()
+            self.sideMenuViewController.hideViewController()
             return
         }
         
-        self.currentSelectedItem.selected = false
+        self.currentSelectedItem.isSelected = false
         self.currentSelectedItem = item
-        item.selected = true
+        item.isSelected = true
         
-        self.sideMenuViewController.hideMenuViewController()
+        self.sideMenuViewController.hideViewController()
         
         let centerStackController = self.sideMenuViewController.contentViewController as! CWStackController
         
@@ -61,16 +62,16 @@ class LeftMenuViewController: UIViewController {
         switch item {
         case self.realtimeItem:
             let realtime = PRRealtimeViewController.cw_loadFromNibUsingClassName()
-            centerStackController.viewControllers = [realtime]
+            centerStackController.viewControllers = [realtime!]
         case self.topCommentItem:
             let topComments = UIStoryboard(name: "TopComments", bundle: nil).instantiateInitialViewController() as! PRTopCommentsViewController
             centerStackController.viewControllers = [topComments]
         case self.weeklyItem:
             let weekly = PRWeeklyViewController.cw_loadFromNibUsingClassName();
-            centerStackController.viewControllers = [weekly]
+            centerStackController.viewControllers = [weekly!]
         case self.starredItem:
             let starreds = StarredArticlesViewController.cw_loadFromNibUsingClassName()
-            centerStackController.viewControllers = [starreds]
+            centerStackController.viewControllers = [starreds!]
         case self.settingsItem:
             let settings: AnyObject = UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController()!
             centerStackController.viewControllers = [settings]
@@ -79,8 +80,8 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
-    @IBAction func switchValueChanged(sender: ThemeSwitch) {
-        self.sideMenuViewController?.hideMenuViewController()
-        PRAppSettings.sharedSettings().nightMode = self.themeSwitch.selected
+    @IBAction func switchValueChanged(_ sender: ThemeSwitch) {
+        self.sideMenuViewController?.hideViewController()
+        PRAppSettings.shared().isNightMode = self.themeSwitch.isSelected
     }
 }

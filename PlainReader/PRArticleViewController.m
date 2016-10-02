@@ -18,12 +18,13 @@
 #import "JTSImageViewController.h"
 #import "PRArticleParser.h"
 #import "PRArticleToolbar.h"
+#import "CWStackController.h"
 
 NSString *const ArticleViewControllerStarredNotification = @"ArticleViewControllerStarredNotification";
 static CGFloat kStatusBarHeight = 20.0f;
 static CGFloat kToolbarHeight = 44.0f;
 
-@interface PRArticleViewController () <UIScrollViewDelegate, UINavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate>
+@interface PRArticleViewController () <CWStackProtocol, UIScrollViewDelegate, UINavigationControllerDelegate, JTSImageViewControllerInteractionsDelegate>
 
 @property (nonatomic, strong) PRArticle *article;
 @property (nonatomic, weak) IBOutlet UIView *statusBarBackground;

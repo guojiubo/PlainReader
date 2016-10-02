@@ -7,7 +7,7 @@
 //
 
 #import "PRDatabase.h"
-#import <FMDB.h>
+#import "FMDB.h"
 #import "FMResultSet+PRAdditions.h"
 #import "PRLongSQLGenerator.h"
 #import "PRStarredCache.h"

@@ -27,9 +27,9 @@ static NSString *CBHomePageToken = nil;
 
 #pragma mark - Helpers
 
-- (AFHTTPRequestOperationManager * )JSONRequestOperationManager
+- (AFHTTPSessionManager * )jsonSessionManager
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     // fixed server text/html issue
     NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", nil];
@@ -37,9 +37,9 @@ static NSString *CBHomePageToken = nil;
     return manager;
 }
 
-- (AFHTTPRequestOperationManager *)HTTPRequestOperationManager
+- (AFHTTPSessionManager *)httpSessionManager
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     return manager;
 }
@@ -56,7 +56,7 @@ static NSString *CBHomePageToken = nil;
 
 - (void)safelyCallback:(CWHTTPFetcherBlock)block
 {
-    DDLogInfo(@"%@", [(AFHTTPRequestOperation *)self.requestOperation responseString]);
+//    DDLogInfo(@"%@", [(NSURLSessionDataTask *)self.requestOperation responseString]);
 
     if (!block) {
         return;
@@ -67,10 +67,10 @@ static NSString *CBHomePageToken = nil;
             return;
         }
         
-        if ([self.requestOperation isKindOfClass:[AFHTTPRequestOperation class]]) {
-            AFHTTPRequestOperation *operation = (AFHTTPRequestOperation *)self.requestOperation;
-            DDLogError(@"%@\n%@", self.error, [operation responseString]);
-        }
+//        if ([self.requestOperation isKindOfClass:[AFHTTPRequestOperation class]]) {
+//            AFHTTPRequestOperation *operation = (AFHTTPRequestOperation *)self.requestOperation;
+//            DDLogError(@"%@\n%@", self.error, [operation responseString]);
+//        }
     }
     
     if ([NSThread isMainThread]) {
@@ -123,10 +123,10 @@ static NSString *CBHomePageToken = nil;
 
 - (void)fetchHomePage:(CWHTTPFetcherBlock)block
 {
-    AFHTTPRequestOperationManager *m = [self HTTPRequestOperationManager];
-    self.requestOperation = [m GET:@"http://www.cnbeta.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *manager = [self httpSessionManager];
+    [manager GET:@"http://www.cnbeta.com" parameters:nil progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:operation.responseData];
+            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:responseObject];
             NSArray *items = [hpple searchWithXPathQuery:@"//div[@class=\"all_news_wildlist\"]//div[@class=\"item\"]"];
             if ([items count] == 0) {
                 self.error = [self serverError];
@@ -160,7 +160,7 @@ static NSString *CBHomePageToken = nil;
             
             [self safelyCallback:block];
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -183,10 +183,10 @@ static NSString *CBHomePageToken = nil;
     int64_t time = (int64_t)([[NSDate date] timeIntervalSince1970] * 1000);
     parameters[@"_"] = @(time);
     
-    AFHTTPRequestOperationManager *m = [self JSONRequestOperationManager];
-    [m.requestSerializer setValue:@"http://www.cnbeta.com/" forHTTPHeaderField:@"Referer"];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
+    [manager.requestSerializer setValue:@"http://www.cnbeta.com/" forHTTPHeaderField:@"Referer"];
 
-    self.requestOperation = [m GET:@"http://www.cnbeta.com/more" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://www.cnbeta.com/more" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSDictionary *json = responseObject;
             if (![json[@"state"] isEqualToString:@"success"]) {
@@ -210,9 +210,7 @@ static NSString *CBHomePageToken = nil;
             
             [self safelyCallback:block];
         });
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -220,10 +218,10 @@ static NSString *CBHomePageToken = nil;
 
 - (void)fetchWeekly:(CWHTTPFetcherBlock)block
 {
-    AFHTTPRequestOperationManager *manager = [self HTTPRequestOperationManager];
-    self.requestOperation = [manager GET:@"http://m.cnbeta.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *manager = [self httpSessionManager];
+    [manager GET:@"http://m.cnbeta.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:operation.responseData];
+            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:responseObject];
             NSArray *modules = [hpple searchWithXPathQuery:@"//div[@class=\"module\"]/ul"];
             
             if (modules.count != 4) {
@@ -275,7 +273,7 @@ static NSString *CBHomePageToken = nil;
             for (TFHppleElement *element in lis) {
                 NSData *hotCommentData = [[element raw] dataUsingEncoding:NSUTF8StringEncoding];
                 TFHpple *hotCommentHpple = [[TFHpple alloc] initWithHTMLData:hotCommentData];
-
+                
                 if ([[element objectForKey:@"class"] isEqualToString:@"module_imgNewsTwoCol"]) {
                     TFHppleElement *aNode = [[hotCommentHpple searchWithXPathQuery:@"//a"] firstObject];
                     NSString *link = [aNode objectForKey:@"href"];
@@ -306,7 +304,7 @@ static NSString *CBHomePageToken = nil;
             
             [self safelyCallback:block];
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -324,18 +322,18 @@ static NSString *CBHomePageToken = nil;
         }
         
         NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/articles/%@.htm", articleId];
-        AFHTTPRequestOperationManager *manager = [self HTTPRequestOperationManager];
-        self.requestOperation = [manager GET:api parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        AFHTTPSessionManager *manager = [self httpSessionManager];
+        [manager GET:api parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:operation.responseData];
+                TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:responseObject];
                 [PRArticleParser parseArticle:article hpple:hpple];
                 article.cacheStatus = @(PRArticleCacheStatusCached);
                 [[PRDatabase sharedDatabase] storeArticle:article];
                 
                 [self safelyCallback:block];
             });
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             self.error = error;
             [self safelyCallback:block];
         }];
@@ -345,10 +343,10 @@ static NSString *CBHomePageToken = nil;
 - (void)fetchTopCommentsWithPage:(NSUInteger)page done:(CWHTTPFetcherBlock)block
 {
     NSString *api = [NSString stringWithFormat:@"http://m.cnbeta.com/jh_%lu.htm", (unsigned long)page];
-    AFHTTPRequestOperationManager *manager = [self HTTPRequestOperationManager];
-    self.requestOperation = [manager GET:api parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *manager = [self httpSessionManager];
+    [manager GET:api parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:operation.responseData];
+            TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:responseObject];
             NSArray *commentElements = [hpple searchWithXPathQuery:@"//ul[@class=\"module_list\"]/li"];
             if ([commentElements count] == 0) {
                 self.error = [self serverError];
@@ -384,7 +382,7 @@ static NSString *CBHomePageToken = nil;
             
             [self safelyCallback:block];
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -395,7 +393,7 @@ static NSString *CBHomePageToken = nil;
     NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/cmt"];
     NSString *op = [NSString stringWithFormat:@"1,%@,%@", article.articleId, article.sn];
     
-    AFHTTPRequestOperationManager *manager = [self JSONRequestOperationManager];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
     
     NSString *phpsession = [self cookiePHPSESSID];
@@ -404,7 +402,7 @@ static NSString *CBHomePageToken = nil;
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"PHPSESSID=%@;csrf_token=%@", phpsession, token] forHTTPHeaderField:@"Cookie"];
     }
     
-    self.requestOperation = [manager POST:api parameters:@{@"op":op} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:api parameters:@{@"op": op} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSDictionary *json = responseObject;
             if (![json[@"state"] isEqualToString:@"success"]) {
@@ -479,7 +477,7 @@ static NSString *CBHomePageToken = nil;
             [[NSNotificationCenter defaultCenter] cw_postNotificationOnMainThreadName:PRHTTPFetcherDidFetchCommentsNotification sender:self userObject:all];
             [self safelyCallback:block];
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [[NSNotificationCenter defaultCenter] cw_postNotificationOnMainThreadName:PRHTTPFetcherDidFetchCommentsNotification sender:self userObject:nil];
         self.error = error;
         [self safelyCallback:block];
@@ -496,7 +494,7 @@ static NSString *CBHomePageToken = nil;
     }
     
     NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/comment"];
-    AFHTTPRequestOperationManager *manager = [self JSONRequestOperationManager];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
 
     NSString *phpsession = [self cookiePHPSESSID];
@@ -510,7 +508,7 @@ static NSString *CBHomePageToken = nil;
     [parameters setObject:comment.aid forKey:@"sid"];
     [parameters setObject:comment.cid forKey:@"tid"];
 
-    self.requestOperation = [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *json = responseObject;
         if (![json[@"state"] isEqualToString:@"success"]) {
             self.error = [self serverError];
@@ -519,7 +517,7 @@ static NSString *CBHomePageToken = nil;
         }
         
         [self safelyCallback:block];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -528,7 +526,7 @@ static NSString *CBHomePageToken = nil;
 - (void)fetchSecurityCodeForArticle:(PRArticle *)article done:(CWHTTPFetcherBlock)block
 {
     NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/captcha?refresh=1"];
-    AFHTTPRequestOperationManager *manager = [self JSONRequestOperationManager];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
     
     NSString *phpsession = [self cookiePHPSESSID];
@@ -539,7 +537,7 @@ static NSString *CBHomePageToken = nil;
     NSString *referer = [NSString stringWithFormat:@"http://cnbeta.com/articles/%@.htm", [article articleId]];
     [manager.requestSerializer setValue:referer forHTTPHeaderField:@"Referer"];
     
-    self.requestOperation = [manager GET:api parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:api parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *json = responseObject;
         NSString *url = json[@"url"];
         if ([url length] == 0) {
@@ -551,7 +549,7 @@ static NSString *CBHomePageToken = nil;
         
         NSString *URLString = [NSString stringWithFormat:@"http://www.cnbeta.com%@", url];
         [self fetchSecurityCodeImageWithURLString:URLString article:article done:block];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -559,7 +557,7 @@ static NSString *CBHomePageToken = nil;
 
 - (void)fetchSecurityCodeImageWithURLString:(NSString *)URLString article:(PRArticle *)article done:(CWHTTPFetcherBlock)block
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
     
@@ -571,11 +569,11 @@ static NSString *CBHomePageToken = nil;
     NSString *referer = [NSString stringWithFormat:@"http://cnbeta.com/articles/%@.htm", [article articleId]];
     [manager.requestSerializer setValue:referer forHTTPHeaderField:@"Referer"];
     
-    self.requestOperation = [manager GET:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        UIImage *image = [UIImage imageWithData:operation.responseData];
+    [manager GET:URLString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        UIImage *image = [UIImage imageWithData:responseObject];
         self.responseObject = image;
         [self safelyCallback:block];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         DDLogError(@"%@", error);
         
         self.error = error;
@@ -586,7 +584,7 @@ static NSString *CBHomePageToken = nil;
 - (void)postCommentToArticle:(PRArticle *)article content:(NSString *)content securityCode:(NSString *)code done:(CWHTTPFetcherBlock)block
 {
     NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/comment"];
-    AFHTTPRequestOperationManager *manager = [self JSONRequestOperationManager];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
     
     NSString *token = [self cookieCSRF_TOKEN];
@@ -600,7 +598,7 @@ static NSString *CBHomePageToken = nil;
     [parameters setObject:code forKey:@"seccode"];
     [parameters setObject:content forKey:@"content"];
     
-    self.requestOperation = [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *json = responseObject;
         if (![json[@"state"] isEqualToString:@"success"]) {
             if ([json[@"state"] isEqualToString:@"error"]) {
@@ -615,7 +613,7 @@ static NSString *CBHomePageToken = nil;
         }
         
         [self safelyCallback:block];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];
@@ -624,7 +622,7 @@ static NSString *CBHomePageToken = nil;
 - (void)replyComment:(PRComment *)comment content:(NSString *)content securityCode:(NSString *)code done:(CWHTTPFetcherBlock)block
 {
     NSString *api = [NSString stringWithFormat:@"http://www.cnbeta.com/comment"];
-    AFHTTPRequestOperationManager *manager = [self JSONRequestOperationManager];
+    AFHTTPSessionManager *manager = [self jsonSessionManager];
     [manager.requestSerializer setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
     
     NSString *token = [self cookieCSRF_TOKEN];
@@ -639,7 +637,7 @@ static NSString *CBHomePageToken = nil;
     [parameters setObject:code forKey:@"seccode"];
     [parameters setObject:content forKey:@"content"];
     
-    self.requestOperation = [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:api parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *json = responseObject;
         if (![json[@"state"] isEqualToString:@"success"]) {
             if ([json[@"state"] isEqualToString:@"error"]) {
@@ -654,7 +652,7 @@ static NSString *CBHomePageToken = nil;
         }
         
         [self safelyCallback:block];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         self.error = error;
         [self safelyCallback:block];
     }];

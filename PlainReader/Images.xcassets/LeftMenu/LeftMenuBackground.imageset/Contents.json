@@ -6,8 +6,13 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x",
-      "filename" : "LeftMenuBackground640x960.png"
+      "subtype" : "retina4",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "LeftMenuBackground640x960.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "iphone",
@@ -17,18 +22,23 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "3x",
-      "filename" : "LeftMenuBackground960x1704.png"
+      "filename" : "LeftMenuBackground960x1704.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "subtype" : "retina4",
+      "scale" : "3x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x",
-      "filename" : "1024 (1).png"
+      "filename" : "1024 (1).png",
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x",
-      "filename" : "2048 (1).png"
+      "filename" : "2048 (1).png",
+      "scale" : "2x"
     }
   ],
   "info" : {

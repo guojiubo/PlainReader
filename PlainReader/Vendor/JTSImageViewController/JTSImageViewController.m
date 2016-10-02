@@ -201,9 +201,10 @@ typedef struct {
 
 #pragma mark - UIViewController
 
-- (NSUInteger)supportedInterfaceOrientations {
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-        return UIInterfaceOrientationPortrait;
+        return UIInterfaceOrientationMaskPortrait;
     }
     /*
      iOS 8 changes the behavior of autorotation when presenting a

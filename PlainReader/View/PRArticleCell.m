@@ -39,12 +39,6 @@
 {
     [super awakeFromNib];
     
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    
-    [[self.cover layer] setMasksToBounds:YES];
-    [[self.cover layer] setCornerRadius:[self.cover cw_width]/2];
-    
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestureRecognizer:)];
     self.panGestureRecognizer.delegate = self;
     [self.contentView addGestureRecognizer:self.panGestureRecognizer];
@@ -130,7 +124,7 @@
     if (translation.x > 0 || fabs(translation.y) > 2.0f) {
         return NO;
     }
-    return fabs(translation.y) <= fabs(translation.x);
+    return fabs(translation.y) < fabs(translation.x);
 }
 
 - (void)prepareForReuse
@@ -217,6 +211,7 @@
 
 - (void)downloadArticle:(PRArticle *)article
 {
+    /*
     if ([article.cacheStatus integerValue] != PRArticleCacheStatusNone) {
         return;
     }
@@ -283,6 +278,7 @@
         });
     }];
     [self.queue addOperation:articleOperation];
+    */
 }
 
 @end

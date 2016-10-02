@@ -11,7 +11,7 @@ import UIKit
 class StarredArticlesViewController: PRPullToRefreshViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    var articles = PRDatabase.sharedDatabase().starredArticles() as! [PRArticle]
+    var articles = PRDatabase.shared().starredArticles() as! [PRArticle]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +20,20 @@ class StarredArticlesViewController: PRPullToRefreshViewController, UITableViewD
 
         let menuView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
         let menuButton = PRAutoHamburgerButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        menuButton.addTarget(self, action: "menuAction:", forControlEvents: .TouchUpInside)
+        menuButton.addTarget(self, action: #selector(StarredArticlesViewController.menuAction(_:)), for: .touchUpInside)
         menuButton.center = menuView.center
         menuView.addSubview(menuButton)
         self.refreshHeader.leftView = menuView
         
-        let nc = NSNotificationCenter.defaultCenter()
-        nc.addObserver(self, selector: "handleStarActionNotification:", name: ArticleViewControllerStarredNotification, object: nil)
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(StarredArticlesViewController.handleStarActionNotification(_:)), name: NSNotification.Name.ArticleViewControllerStarred, object: nil)
     }
     
-    func handleStarActionNotification(n: NSNotification) {
+    func handleStarActionNotification(_ n: Notification) {
         self.tableView.reloadData()
     }
     
-    func menuAction(sender: PRAutoHamburgerButton) {
+    func menuAction(_ sender: PRAutoHamburgerButton) {
         self.sideMenuViewController.presentLeftMenuViewController()
     }
     
@@ -51,35 +51,35 @@ class StarredArticlesViewController: PRPullToRefreshViewController, UITableViewD
     
     override func refreshTriggered() {
         super.refreshTriggered()
-        articles = PRDatabase.sharedDatabase().starredArticles() as! [PRArticle]
-        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-        dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
+        articles = PRDatabase.shared().starredArticles() as! [PRArticle]
+        self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        DispatchQueue.main.async(execute: { [weak self] () -> Void in
             if let weakSelf = self {
                 weakSelf.refreshCompleted()
             }
         })
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articles.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ArticleCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PRArticleCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PRArticleCell
         if cell == nil {
-            cell = NSBundle.mainBundle().loadNibNamed("PRArticleCell", owner: self, options: nil).first as? PRArticleCell
+            cell = Bundle.main.loadNibNamed("PRArticleCell", owner: self, options: nil)?.first as? PRArticleCell
         }
-        cell!.article = self.articles[indexPath.row]
+        cell!.article = self.articles[(indexPath as NSIndexPath).row]
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let article = self.articles[indexPath.row]
+        let article = self.articles[(indexPath as NSIndexPath).row]
         let vc = PRArticleViewController.cw_loadFromNibUsingClassName()
-        vc.articleId = article.articleId;
+        vc?.articleId = article.articleId;
         self.stackController.pushViewController(vc, animated: true)
     }
 

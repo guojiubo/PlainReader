@@ -11,7 +11,6 @@
 		416FA32D1923146200F3D543 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416FA32C1923146200F3D543 /* Settings.storyboard */; };
 		41788BD5192DDD1400BB799D /* PRBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41788BD3192DDD1400BB799D /* PRBrowserViewController.m */; };
 		41788BD6192DDD1400BB799D /* PRBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41788BD4192DDD1400BB799D /* PRBrowserViewController.xib */; };
-		4180EAE3193DC56A00FDED9C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4180EAE2193DC56A00FDED9C /* libPods.a */; };
 		419EBF121A14BDF900BBC9F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419EBF111A14BDF900BBC9F3 /* CFNetwork.framework */; };
 		419EBF141A14BE0A00BBC9F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419EBF131A14BE0A00BBC9F3 /* QuartzCore.framework */; };
 		41E33667192AF2BE00FC9CBB /* PRCommentPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E33665192AF2BE00FC9CBB /* PRCommentPostViewController.m */; };
@@ -142,6 +141,7 @@
 		C198189D1B09868300F7A9F2 /* PRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C19818981B09868300F7A9F2 /* PRDatabase.m */; };
 		C198189E1B09868300F7A9F2 /* PRLongSQLGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C198189A1B09868300F7A9F2 /* PRLongSQLGenerator.m */; };
 		C198189F1B09868300F7A9F2 /* PRStarredCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C198189C1B09868300F7A9F2 /* PRStarredCache.m */; };
+		DA200E4DE6683720F0A914E0 /* Pods_PlainReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9331E6BA8E0EDC98A01290 /* Pods_PlainReader.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +157,8 @@
 		41E33664192AF2BE00FC9CBB /* PRCommentPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PRCommentPostViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		41E33665192AF2BE00FC9CBB /* PRCommentPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PRCommentPostViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		41E33666192AF2BE00FC9CBB /* PRCommentPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PRCommentPostViewController.xib; sourceTree = "<group>"; };
+		445A259092D1716DEBF488F1 /* Pods-PlainReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlainReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlainReader/Pods-PlainReader.debug.xcconfig"; sourceTree = "<group>"; };
+		8A9331E6BA8E0EDC98A01290 /* Pods_PlainReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlainReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCD583F4FC0655F04B0604E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A022473418F6953200E4DE7E /* PRWeeklyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PRWeeklyViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A022473518F6953200E4DE7E /* PRWeeklyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PRWeeklyViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -355,6 +357,7 @@
 		C198189B1B09868300F7A9F2 /* PRStarredCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRStarredCache.h; sourceTree = "<group>"; };
 		C198189C1B09868300F7A9F2 /* PRStarredCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRStarredCache.m; sourceTree = "<group>"; };
 		ECB5ABC7403F38DF22133DC0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F0815F766CB9AC240CF286F6 /* Pods-PlainReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlainReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlainReader/Pods-PlainReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,7 +367,6 @@
 			files = (
 				419EBF141A14BE0A00BBC9F3 /* QuartzCore.framework in Frameworks */,
 				419EBF121A14BDF900BBC9F3 /* CFNetwork.framework in Frameworks */,
-				4180EAE3193DC56A00FDED9C /* libPods.a in Frameworks */,
 				A08224CA19223D3A001CA73A /* libz.dylib in Frameworks */,
 				A08224C819223D2E001CA73A /* libstdc++.dylib in Frameworks */,
 				A08224C619223D26001CA73A /* CoreTelephony.framework in Frameworks */,
@@ -375,6 +377,7 @@
 				A08224BE19223CF5001CA73A /* Security.framework in Frameworks */,
 				A0A0767818DA8D6B00B1FEB9 /* UIKit.framework in Frameworks */,
 				A0A0767418DA8D6B00B1FEB9 /* Foundation.framework in Frameworks */,
+				DA200E4DE6683720F0A914E0 /* Pods_PlainReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +389,8 @@
 			children = (
 				8BCD583F4FC0655F04B0604E /* Pods.debug.xcconfig */,
 				ECB5ABC7403F38DF22133DC0 /* Pods.release.xcconfig */,
+				445A259092D1716DEBF488F1 /* Pods-PlainReader.debug.xcconfig */,
+				F0815F766CB9AC240CF286F6 /* Pods-PlainReader.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				A0A0767518DA8D6B00B1FEB9 /* CoreGraphics.framework */,
 				A0A0767718DA8D6B00B1FEB9 /* UIKit.framework */,
 				A0A0768C18DA8D6B00B1FEB9 /* XCTest.framework */,
+				8A9331E6BA8E0EDC98A01290 /* Pods_PlainReader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -793,6 +799,7 @@
 				A0A0766D18DA8D6B00B1FEB9 /* Frameworks */,
 				A0A0766E18DA8D6B00B1FEB9 /* Resources */,
 				B9FD8EAC190747A29BAF9C73 /* Copy Pods Resources */,
+				AF193EFF4BD53862A6E5E781 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -810,11 +817,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = GUOJIUBO;
 				TargetAttributes = {
 					A0A0766F18DA8D6B00B1FEB9 = {
 						DevelopmentTeam = L37M32S8YS;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -906,6 +914,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AF193EFF4BD53862A6E5E781 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlainReader/Pods-PlainReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B9FD8EAC190747A29BAF9C73 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -918,7 +941,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlainReader/Pods-PlainReader-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C41ADB169ECF4FB0A5D59AC4 /* Check Pods Manifest.lock */ = {
@@ -1035,6 +1058,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1044,15 +1068,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1065,7 +1094,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1076,6 +1105,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1085,30 +1115,36 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		A0A0769D18DA8D6B00B1FEB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BCD583F4FC0655F04B0604E /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 445A259092D1716DEBF488F1 /* Pods-PlainReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1129,7 +1165,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "PlainReader/PlainReader-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1139,6 +1175,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlainReader/PlainReader-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1148,7 +1185,7 @@
 		};
 		A0A0769E18DA8D6B00B1FEB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECB5ABC7403F38DF22133DC0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F0815F766CB9AC240CF286F6 /* Pods-PlainReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1169,7 +1206,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "PlainReader/PlainReader-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -1178,6 +1215,7 @@
 				PRODUCT_NAME = PlainReader;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlainReader/PlainReader-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";

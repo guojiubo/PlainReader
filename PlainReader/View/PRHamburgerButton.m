@@ -7,7 +7,7 @@
 //
 
 #import "PRHamburgerButton.h"
-#import <POP.h>
+#import "POP.h"
 
 @interface PRHamburgerButton ()
 

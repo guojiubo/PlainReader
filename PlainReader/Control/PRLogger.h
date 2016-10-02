@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <DDLog.h>
-#import <DDASLLogger.h>
-#import <DDTTYLogger.h>
+#import "DDLog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
 
 extern const int ddLogLevel;
 
