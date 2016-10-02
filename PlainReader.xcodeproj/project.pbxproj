@@ -135,7 +135,6 @@
 		BCF85CF91B08ECFB00E734AE /* FMResultSet+PRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85CF61B08ECFB00E734AE /* FMResultSet+PRAdditions.m */; };
 		BCF85CFA1B08ECFB00E734AE /* TFHppleElement+PRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85CF81B08ECFB00E734AE /* TFHppleElement+PRAdditions.m */; };
 		BCF85CFD1B08F0F800E734AE /* PRStackController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85CFC1B08F0F800E734AE /* PRStackController.m */; };
-		BCF85D011B08F89B00E734AE /* FSBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85CFF1B08F89B00E734AE /* FSBase64.m */; };
 		BCF85D041B08F93A00E734AE /* PRCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85D031B08F93A00E734AE /* PRCellButton.m */; };
 		BCF85D0D1B08F99300E734AE /* UIImage+PRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF85D0A1B08F99300E734AE /* UIImage+PRAdditions.m */; };
 		C198189D1B09868300F7A9F2 /* PRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C19818981B09868300F7A9F2 /* PRDatabase.m */; };
@@ -343,9 +342,6 @@
 		BCF85CF81B08ECFB00E734AE /* TFHppleElement+PRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TFHppleElement+PRAdditions.m"; sourceTree = "<group>"; };
 		BCF85CFB1B08F0F800E734AE /* PRStackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRStackController.h; sourceTree = "<group>"; };
 		BCF85CFC1B08F0F800E734AE /* PRStackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRStackController.m; sourceTree = "<group>"; };
-		BCF85CFE1B08F89B00E734AE /* FSBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBase64.h; sourceTree = "<group>"; };
-		BCF85CFF1B08F89B00E734AE /* FSBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBase64.m; sourceTree = "<group>"; };
-		BCF85D001B08F89B00E734AE /* FSBase64Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBase64Defines.h; sourceTree = "<group>"; };
 		BCF85D021B08F93A00E734AE /* PRCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRCellButton.h; sourceTree = "<group>"; };
 		BCF85D031B08F93A00E734AE /* PRCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRCellButton.m; sourceTree = "<group>"; };
 		BCF85D091B08F99300E734AE /* UIImage+PRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PRAdditions.h"; sourceTree = "<group>"; };
@@ -700,9 +696,6 @@
 			isa = PBXGroup;
 			children = (
 				BCF85D0E1B08FB5900E734AE /* URLLoading */,
-				BCF85CFE1B08F89B00E734AE /* FSBase64.h */,
-				BCF85CFF1B08F89B00E734AE /* FSBase64.m */,
-				BCF85D001B08F89B00E734AE /* FSBase64Defines.h */,
 				BCF85CC61B0848D500E734AE /* PRActivityMonitor.h */,
 				BCF85CC71B0848D500E734AE /* PRActivityMonitor.m */,
 				BCF85CC81B0848D500E734AE /* PRAppearanceManager.h */,
@@ -999,7 +992,6 @@
 				C198189E1B09868300F7A9F2 /* PRLongSQLGenerator.m in Sources */,
 				BCF85CA21B08483400E734AE /* PRTopCommentCell.m in Sources */,
 				BC7D2D7B1A13973C00F9D45E /* StarredArticlesViewController.swift in Sources */,
-				BCF85D011B08F89B00E734AE /* FSBase64.m in Sources */,
 				BCF85C9C1B08483400E734AE /* PRCommentCell.m in Sources */,
 				A06220A919C5535700B5B0B1 /* NIAttributedLabel.m in Sources */,
 				BCF85CE71B0848D500E734AE /* PRLogger.m in Sources */,
